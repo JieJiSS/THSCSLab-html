@@ -77,7 +77,8 @@
             <script type="application/javascript">
                 var ctx = location.origin;
                 $("div#main").ready(function () {
-                    $.get(ctx + "/blog?title=" + location.href.split("/").pop().toLowerCase(), function (data, status) {
+		    var title = location.href.split("/").pop().toLowerCase();
+                    $.get(ctx + "/blog/title/" + title, function (data, status) {
                         if(status === "success") {
                             var des = data.description || "本文没有简介。";
                             $("div#description").html(des);
